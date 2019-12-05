@@ -1,5 +1,9 @@
 package fp.daw.examen;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Ejercicio2 {
 
 	/*
@@ -18,8 +22,24 @@ public class Ejercicio2 {
 	 * Sólo se permite el uso de recursos del lenguaje Java vistos en las unidades 2 y 3.
 	 */
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		
+		System.out.print("Escribe un número: ");
+		int n1 = Integer.parseInt(in.readLine());
+		System.out.print("Escribe otro número: ");
+		int n2 = Integer.parseInt(in.readLine());
+		if (n1 > n2) {
+			int aux = n1;
+			n1 = n2;
+			n2 = aux;
+		}
+		if (n1 % 2 == 0)
+			n1++;
+		int suma = 0;
+		for (int i=n1; i<=n2; i+=2)
+			suma = suma + i;
+		System.out.println("Suma: " + suma);
 	}
 
 }
